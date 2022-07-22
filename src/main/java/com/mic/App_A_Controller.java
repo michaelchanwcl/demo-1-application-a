@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class App_A_Controller {
 
     private static final Logger log = LoggerFactory.getLogger(App_A_Controller.class);
-
     @Autowired
     App_B_Proxy appBProxy;
 
@@ -24,6 +23,8 @@ public class App_A_Controller {
 
         App_A_ResponseDTO appAResponseDTO = new App_A_ResponseDTO();
         appAResponseDTO.setA(appBResponseDTO.getA());
+        log.info("Response back with=[" + appBResponseDTO.getA() + "]");
+
         return appAResponseDTO;
     }
 }
